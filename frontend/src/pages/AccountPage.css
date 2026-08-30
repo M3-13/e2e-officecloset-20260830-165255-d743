@@ -1,0 +1,105 @@
+.account-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-3);
+}
+
+.account-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.account-card-title {
+  font-size: 24px;
+  margin-bottom: var(--space-3);
+}
+
+.account-fields {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.account-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-0);
+}
+
+.account-field-label {
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.account-field-value {
+  font-size: 16px;
+  color: var(--color-fg);
+  margin: 0;
+  word-break: break-word;
+}
+
+.account-danger-title {
+  color: var(--color-danger);
+}
+
+.account-danger-text {
+  color: var(--color-muted);
+  font-size: 16px;
+  margin: 0 0 var(--space-3);
+}
+
+.account-error {
+  color: var(--color-danger);
+  font-size: 14px;
+  margin: var(--space-3) 0 0;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3);
+}
+
+.modal-dialog {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  max-width: 480px;
+  width: 100%;
+}
+
+.modal-title {
+  font-size: 24px;
+  margin-bottom: var(--space-2);
+}
+
+.modal-text {
+  color: var(--color-muted);
+  font-size: 16px;
+  margin: 0 0 var(--space-4);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .account-page {
+    padding: var(--space-4);
+  }
+}
