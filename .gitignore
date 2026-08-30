@@ -29,6 +29,9 @@ Thumbs.db
 *.sqlite
 *.sqlite3
 
+# Persisted JWT secret (generated at boot, must never be committed)
+backend/.jwt_secret
+
 # Node / Vite / Webpack / TypeScript
 node_modules/
 .vite/
