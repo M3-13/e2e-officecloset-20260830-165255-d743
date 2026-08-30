@@ -14,6 +14,7 @@ from fastapi.responses import JSONResponse
 from app import models
 from app.config import settings
 from app.database import engine
+from app.middleware import RequestSizeLimitMiddleware
 from app.routers import account, auth, items, outfits
 
 logger = logging.getLogger(__name__)
@@ -30,6 +31,7 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+app.add_middleware(RequestSizeLimitMiddleware)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[settings.frontend_origin],
