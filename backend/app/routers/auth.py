@@ -46,7 +46,7 @@ def _enforce_rate_limit(request: Request, action: str) -> None:
         _rate_limits[key] = recent
         raise HTTPException(
             status_code=429,
-            detail="Too many attempts. Please try again later.",
+            detail="Zu viele Versuche. Bitte versuchen Sie es später erneut.",
         )
     recent.append(now)
     _rate_limits[key] = recent
@@ -94,7 +94,7 @@ def register(
     if db.query(User).filter(User.email == email).first() is not None:
         raise HTTPException(
             status_code=status.HTTP_409_CONFLICT,
-            detail="Email already registered",
+            detail="Diese E-Mail ist bereits registriert",
         )
 
     user = User(
@@ -122,7 +122,7 @@ def login(
     if user is None or not _verify_password(body.password, user.password_hash):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid email or password",
+            detail="E-Mail oder Passwort ist falsch",
         )
 
     return _token_response(user, _create_access_token(user.id))

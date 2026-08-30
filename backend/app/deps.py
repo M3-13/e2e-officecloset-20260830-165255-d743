@@ -22,7 +22,7 @@ def get_current_user(request: Request, db: Session = Depends(get_db)) -> User:
     if not auth_header or not auth_header.lower().startswith("bearer "):
         raise HTTPException(
             status_code=401,
-            detail="Not authenticated",
+            detail="Nicht authentifiziert",
             headers={"WWW-Authenticate": "Bearer"},
         )
 
@@ -32,7 +32,7 @@ def get_current_user(request: Request, db: Session = Depends(get_db)) -> User:
     except jwt.PyJWTError:
         raise HTTPException(
             status_code=401,
-            detail="Invalid or expired token",
+            detail="Ungültiges oder abgelaufenes Token",
             headers={"WWW-Authenticate": "Bearer"},
         ) from None
 
@@ -40,7 +40,7 @@ def get_current_user(request: Request, db: Session = Depends(get_db)) -> User:
     if subject is None:
         raise HTTPException(
             status_code=401,
-            detail="Invalid or expired token",
+            detail="Ungültiges oder abgelaufenes Token",
             headers={"WWW-Authenticate": "Bearer"},
         )
 
@@ -49,7 +49,7 @@ def get_current_user(request: Request, db: Session = Depends(get_db)) -> User:
     except (TypeError, ValueError):
         raise HTTPException(
             status_code=401,
-            detail="Invalid or expired token",
+            detail="Ungültiges oder abgelaufenes Token",
             headers={"WWW-Authenticate": "Bearer"},
         ) from None
 
@@ -57,7 +57,7 @@ def get_current_user(request: Request, db: Session = Depends(get_db)) -> User:
     if user is None:
         raise HTTPException(
             status_code=401,
-            detail="Invalid or expired token",
+            detail="Ungültiges oder abgelaufenes Token",
             headers={"WWW-Authenticate": "Bearer"},
         )
 
