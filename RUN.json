@@ -88,8 +88,8 @@
           "dev": "5242880"
         },
         "JWT_SECRET": {
-          "generate": "hex",
-          "bytes": 32
+          "external": true,
+          "degraded_without": "the backend persists and reuses its own generated secret in backend/.jwt_secret"
         }
       }
     }
